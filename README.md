@@ -9,7 +9,7 @@ The ClearTasks/ folder is the root directory of the project -> it has the follow
        - components: for various UI components - "will be mainly updated with different UI component files/codes closer to final submission"
        - services/api.js: API service for backend integration
        - App.js: main entry point
-       - package.json
+      
 
 2- server folder contains the backend code written in FastAPI -> it has the following:
   2-a. .env: stores the AWS credentials and other configuration details.
