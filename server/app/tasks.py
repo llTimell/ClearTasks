@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 import boto3
 from pydantic import BaseModel
-from config import S3_bucket_identifier, SNS_topic, Aws_region
+from app.config import S3_bucket_identifier, SNS_topic, Aws_region
 
 tasks_router = APIRouter()
 

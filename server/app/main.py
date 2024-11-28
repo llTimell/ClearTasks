@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from auth import auth_router
-from tasks import tasks_router
+from app.auth import auth_router
+from app.tasks import tasks_router
 
 app= FastAPI()
 
