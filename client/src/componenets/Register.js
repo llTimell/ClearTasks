@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
-import { login } from '../services/api';
+import { register } from '../services/api';
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      const response = await login({ username, password });
+      const response = await register({ username, email, password });
       console.log(response.data);
-      alert('Login Successful!');
+      alert('Registration Successful!');
     } catch (error) {
-      setErrorMessage('Login failed: ' + (error.response?.data?.message || error.message));
+      setErrorMessage('Registration failed: ' + (error.response?.data?.message || error.message));
     }
   };
 
   return (
     <div className="container">
-      <h2>Login</h2>
+      <h2>Register</h2>
       <input
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <input
         type="password"
@@ -32,9 +39,9 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleRegister}>Register</button>
     </div>
   );
 };
 
-export default Login;
+export default Register;
