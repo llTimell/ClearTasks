@@ -11,6 +11,8 @@ Aws_region = os.getenv("AWS_REGION")
 # Cognito Config
 awsCognito_ID = os.getenv("AWS_COGNITO_CLIENT_ID")
 awsCognito_UserPool = os.getenv("AWS_COGNITO_USER_POOL_ID")
+awsCognito_AppClientSecret = os.getenv("AWS_COGNITO_APP_CLIENT_SECRET") 
+
 
 # s3 Database Config
 S3_bucket_identifier = os.getenv("AWS_S3_BUCKET_NAME")
