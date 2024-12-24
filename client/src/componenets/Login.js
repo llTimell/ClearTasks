@@ -14,17 +14,25 @@ const Login = () => {
     try {
       const response = await login({ username, password });
       console.log(response.data);
-
+  
       // decoding the ID token (JWT) to extract groups (roles)
-      const idToken = response.data.id_token; 
+      const idToken = response.data.id_token;
       const decodedToken = JSON.parse(atob(idToken.split('.')[1])); // decode the JWT
+  
+      // log the decoded token to inspect its structure
+      console.log("Decoded Token:", decodedToken);
+  
       const roles = decodedToken['cognito:groups'] || []; // get the groups (roles) assigned
-
+      const email = decodedToken['email']; // extract the email from the decoded token - to display correct tasks for logged in user
+  
       const userRole = roles.includes('Admin') ? 'Admin' : 'NormalUser'; // Check if user is in 'Admin' or 'NormalUser' group
-
+  
       localStorage.setItem('role', userRole); // storing the role
       localStorage.setItem('username', username); // saving username to localStorage
-
+      localStorage.setItem('email', email); // saving email to localStorage
+  
+      console.log("Logged-in user email:", email);
+  
       // setting the role and welcome message
       setRole(userRole);
       setWelcomeMessage(`Welcome ${username} - ${userRole}`);
@@ -32,6 +40,7 @@ const Login = () => {
       setErrorMessage('Login failed: ' + (error.response?.data?.message || error.message));
     }
   };
+  
 
   const goToDashboard = () => {
     if (role === 'Admin') {

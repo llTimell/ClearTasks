@@ -1,5 +1,28 @@
-fastapi
-uvicorn
-boto3
-python-dotenv
-
+annotated-types   
+anyio             
+boto3             
+botocore          
+click           
+colorama         
+dnspython        
+ecdsa           
+email_validator  
+fastapi           
+h11              
+idna            
+jmespath          1.0.1
+pip               24.2
+pyasn1            0.6.1
+pydantic          2.10.4
+pydantic_core     2.27.2
+python-dateutil   2.9.0.post0
+python-dotenv     1.0.1
+python-jose       3.3.0
+rsa               4.9
+s3transfer        0.10.4
+six               1.17.0
+sniffio           1.3.1
+starlette         0.41.3
+typing_extensions 4.12.2
+urllib3           2.2.3
+uvicorn           0.34.0
