@@ -34,14 +34,13 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleDeleteTask = async (title) => {
-    try {
-      await deleteTask(title);
-      fetchTasks();
-    } catch (error) {
-      console.error('Error deleting task:', error);
-    }
-  };
+const handleDeleteTask = async (title) => {
+  try {
+    await deleteTask(title);
+  } catch (error) {
+    alert("Failed to delete task.");
+  }
+};
 
   return (
     <div className="container">

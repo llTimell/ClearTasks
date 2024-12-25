@@ -48,7 +48,7 @@ export const getTasks = async () => {
 
 export const deleteTask = async (title) => {
   try {
-    const response = await axios.delete(`${API_URL}/tasks/delete/${title}`);
+    const response = await axios.delete(`${API_URL}/tasks/tasks/delete/${title}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -57,7 +57,7 @@ export const deleteTask = async (title) => {
 
 export const updateTaskStatus = async (title, status) => {
   try {
-    const response = await axios.put(`${API_URL}/tasks/update/${title}`, { status });
+    const response = await axios.put(`${API_URL}/tasks/tasks/update/${title}?status=${status}`);
     return response.data;
   } catch (error) {
     throw error;
